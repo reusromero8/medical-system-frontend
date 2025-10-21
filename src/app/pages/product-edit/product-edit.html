@@ -1,1 +1,193 @@
-<p>product-edit works!</p>
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h3>
+        <i class="bi" [ngClass]="isEditMode ? 'bi-pencil-square' : 'bi-plus-circle'"></i>
+        {{ isEditMode ? 'Editar Producto' : 'Nuevo Producto' }}
+      </h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        
+        <!-- Nombre -->
+        <div class="mb-3">
+          <label for="name" class="form-label">
+            Nombre <span class="text-danger">*</span>
+          </label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="name"
+            formControlName="name"
+            [class.is-invalid]="isFieldInvalid('name')"
+            placeholder="Ej: Paracetamol 500mg">
+          <div class="invalid-feedback" *ngIf="isFieldInvalid('name')">
+            {{ getErrorMessage('name') }}
+          </div>
+        </div>
+
+        <!-- Descripción -->
+        <div class="mb-3">
+          <label for="description" class="form-label">Descripción</label>
+          <textarea 
+            class="form-control" 
+            id="description"
+            formControlName="description"
+            rows="3"
+            [class.is-invalid]="isFieldInvalid('description')"
+            placeholder="Descripción del producto"></textarea>
+          <div class="invalid-feedback" *ngIf="isFieldInvalid('description')">
+            {{ getErrorMessage('description') }}
+          </div>
+        </div>
+
+        <!-- Presentación -->
+        <div class="mb-3">
+          <label for="presentation" class="form-label">Presentación</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="presentation"
+            formControlName="presentation"
+            [class.is-invalid]="isFieldInvalid('presentation')"
+            placeholder="Ej: Tableta, Cápsula, Jarabe">
+          <div class="invalid-feedback" *ngIf="isFieldInvalid('presentation')">
+            {{ getErrorMessage('presentation') }}
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- Precio Unitario -->
+          <div class="col-md-4 mb-3">
+            <label for="unitPrice" class="form-label">
+              Precio Unitario <span class="text-danger">*</span>
+            </label>
+            <div class="input-group">
+              <span class="input-group-text">S/</span>
+              <input 
+                type="number" 
+                class="form-control" 
+                id="unitPrice"
+                formControlName="unitPrice"
+                [class.is-invalid]="isFieldInvalid('unitPrice')"
+                step="0.01"
+                min="0.01"
+                placeholder="0.00">
+            </div>
+            <div class="invalid-feedback d-block" *ngIf="isFieldInvalid('unitPrice')">
+              {{ getErrorMessage('unitPrice') }}
+            </div>
+          </div>
+
+          <!-- Stock -->
+          <div class="col-md-4 mb-3">
+            <label for="stock" class="form-label">
+              Stock <span class="text-danger">*</span>
+            </label>
+            <input 
+              type="number" 
+              class="form-control" 
+              id="stock"
+              formControlName="stock"
+              [class.is-invalid]="isFieldInvalid('stock')"
+              min="0"
+              placeholder="0">
+            <div class="invalid-feedback" *ngIf="isFieldInvalid('stock')">
+              {{ getErrorMessage('stock') }}
+            </div>
+          </div>
+
+          <!-- Fecha de Vencimiento -->
+          <div class="col-md-4 mb-3">
+            <label for="expired" class="form-label">
+              Fecha de Vencimiento <span class="text-danger">*</span>
+            </label>
+            <input 
+              type="date" 
+              class="form-control" 
+              id="expired"
+              formControlName="expired"
+              [class.is-invalid]="isFieldInvalid('expired')">
+            <div class="invalid-feedback" *ngIf="isFieldInvalid('expired')">
+              {{ getErrorMessage('expired') }}
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- Categoría -->
+          <div class="col-md-4 mb-3">
+            <label for="categoryId" class="form-label">
+              Categoría <span class="text-danger">*</span>
+            </label>
+            <select 
+              class="form-select" 
+              id="categoryId"
+              formControlName="categoryId"
+              [class.is-invalid]="isFieldInvalid('categoryId')">
+              <option value="">Seleccione una categoría</option>
+              <option *ngFor="let category of categories" [value]="category.idCategory">
+                {{ category.name }}
+              </option>
+            </select>
+            <div class="invalid-feedback" *ngIf="isFieldInvalid('categoryId')">
+              {{ getErrorMessage('categoryId') }}
+            </div>
+          </div>
+
+          <!-- Familia -->
+          <div class="col-md-4 mb-3">
+            <label for="familyId" class="form-label">
+              Familia <span class="text-danger">*</span>
+            </label>
+            <select 
+              class="form-select" 
+              id="familyId"
+              formControlName="familyId"
+              [class.is-invalid]="isFieldInvalid('familyId')">
+              <option value="">Seleccione una familia</option>
+              <option *ngFor="let family of families" [value]="family.idFamily">
+                {{ family.name }}
+              </option>
+            </select>
+            <div class="invalid-feedback" *ngIf="isFieldInvalid('familyId')">
+              {{ getErrorMessage('familyId') }}
+            </div>
+          </div>
+
+          <!-- Laboratorio -->
+          <div class="col-md-4 mb-3">
+            <label for="laboratoryId" class="form-label">
+              Laboratorio <span class="text-danger">*</span>
+            </label>
+            <select 
+              class="form-select" 
+              id="laboratoryId"
+              formControlName="laboratoryId"
+              [class.is-invalid]="isFieldInvalid('laboratoryId')">
+              <option value="">Seleccione un laboratorio</option>
+              <option *ngFor="let laboratory of laboratories" [value]="laboratory.idLaboratory">
+                {{ laboratory.name }}
+              </option>
+            </select>
+            <div class="invalid-feedback" *ngIf="isFieldInvalid('laboratoryId')">
+              {{ getErrorMessage('laboratoryId') }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="d-flex justify-content-end gap-2 mt-4">
+          <button type="button" class="btn btn-secondary" (click)="cancel()">
+            <i class="bi bi-x-circle"></i> Cancelar
+          </button>
+          <button type="submit" class="btn btn-primary">
+            <i class="bi bi-check-circle"></i> 
+            {{ isEditMode ? 'Actualizar' : 'Guardar' }}
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

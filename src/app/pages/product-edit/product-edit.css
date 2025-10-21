@@ -1,0 +1,206 @@
+/* Estilos para el card */
+.card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.075);
+}
+
+.card-header {
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+  padding: 1.25rem 1.5rem;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Estilos para el formulario */
+.form-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+.form-control,
+.form-select {
+  border-radius: 8px;
+  border: 1.5px solid #ced4da;
+  padding: 0.6rem 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+  transform: translateY(-1px);
+}
+
+.form-control:hover,
+.form-select:hover {
+  border-color: #86b7fe;
+}
+
+/* Estilos para campos inválidos */
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: #dc3545;
+  background-image: none;
+}
+
+.form-control.is-invalid:focus,
+.form-select.is-invalid:focus {
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.15);
+}
+
+.invalid-feedback {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Estilos para el asterisco requerido */
+.text-danger {
+  font-weight: bold;
+  color: #dc3545;
+}
+
+/* Estilos para el input-group */
+.input-group-text {
+  background-color: #e9ecef;
+  border: 1.5px solid #ced4da;
+  border-radius: 8px 0 0 8px;
+  font-weight: 600;
+  color: #495057;
+}
+
+.input-group .form-control {
+  border-left: 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.input-group .form-control:focus {
+  border-left: 1.5px solid #0d6efd;
+}
+
+/* Estilos para textarea */
+textarea.form-control {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Estilos para los botones */
+.btn {
+  border-radius: 8px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  box-shadow: 0 2px 4px rgba(13, 110, 253, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(13, 110, 253, 0.4);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  box-shadow: 0 2px 4px rgba(108, 117, 125, 0.3);
+}
+
+.btn-secondary:hover {
+  background-color: #5c636a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(108, 117, 125, 0.4);
+}
+
+.btn i {
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+/* Espaciado entre botones */
+.gap-2 {
+  gap: 0.75rem;
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeInUp 0.4s ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-header h3 {
+    font-size: 1.25rem;
+  }
+  
+  .form-label {
+    font-size: 0.85rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Efecto hover en los select */
+.form-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+}
+
+/* Placeholder style */
+.form-control::placeholder {
+  color: #adb5bd;
+  font-style: italic;
+}
+
+/* Mejora visual para campos de fecha */
+input[type="date"].form-control {
+  cursor: pointer;
+}
+
+/* Estilo para el grupo de botones al final */
+.d-flex.justify-content-end {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #dee2e6;
+}
+
+/* Loading state (opcional) */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Iconos en los labels */
+.form-label i {
+  margin-right: 0.5rem;
+  color: #6c757d;
+}
