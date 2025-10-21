@@ -21,7 +21,7 @@
                 <mat-icon>account_box</mat-icon>
                 <span>My account</span>
             </button>
-            <button mat-menu-item (click)="sidenav.opened = false" >
+            <button mat-menu-item (click)="sidenav.opened = false">
                 <mat-icon>exit_to_app</mat-icon>
                 <span>Logout</span>
             </button>
@@ -33,14 +33,14 @@
 
             <img src="clinica.png" width="128" style="margin-left: 20px">    
 
-           <mat-divider></mat-divider>
-            <button class="myButton"   mat-menu-item (click)="sidenav.toggle()"
+            <mat-divider></mat-divider>
+            <button class="myButton" mat-menu-item (click)="sidenav.toggle()"
                 routerLink="/pages/search" style="cursor: pointer">
                 <mat-icon>search</mat-icon>
                 <span>Search</span>
             </button>
             <mat-divider></mat-divider>
-            <button class="myButton"  mat-menu-item (click)="sidenav.toggle()"
+            <button class="myButton" mat-menu-item (click)="sidenav.toggle()"
                 routerLink="/pages/consult-wizard" style="cursor: pointer">
                 <mat-icon>view_carousel</mat-icon>
                 <span>Purchase</span>
@@ -58,14 +58,23 @@
                 <span>Medic</span>
             </button>
             <mat-divider></mat-divider>
-            <button class="myButton"  mat-menu-item (click)="sidenav.toggle()"
+            
+            <!-- NUEVO: Botón de Productos -->
+            <button class="myButton" mat-menu-item (click)="sidenav.toggle()"
+                routerLink="/products" style="cursor: pointer">
+                <mat-icon>inventory_2</mat-icon>
+                <span>Products</span>
+            </button>
+            <mat-divider></mat-divider>
+            
+            <button class="myButton" mat-menu-item (click)="sidenav.toggle()"
                 routerLink="/pages/project" style="cursor: pointer">
                 <mat-icon>assignment</mat-icon>
                 <span>Project</span>
             </button>
             <mat-divider></mat-divider>
-            <button class="myButton"   mat-menu-item (click)="sidenav.toggle()"
-                routerLink="/pages/patient" style="cursor: pointer">
+            <button class="myButton" mat-menu-item (click)="sidenav.toggle()"
+                routerLink="/pages/employee" style="cursor: pointer">
                 <mat-icon>accessibility</mat-icon>
                 <span>Employee</span>
             </button>
@@ -79,9 +88,7 @@
         </mat-sidenav>
 
         <mat-sidenav-content>
-
             <router-outlet/>
-            
         </mat-sidenav-content>
             
     </mat-sidenav-container>
